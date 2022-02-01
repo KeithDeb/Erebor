@@ -7,6 +7,7 @@ namespace TaskSystem
 {
     public interface IWorker
     {
+        int GetPosition();
         void MoveTo(int position, Action onArrivedAtPosition = null);
     }
 }

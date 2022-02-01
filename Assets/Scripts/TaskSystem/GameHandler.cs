@@ -10,12 +10,14 @@ namespace TaskSystem
         {
             //instiantate the Task System
             TaskSystem taskSystem = new TaskSystem();
-            //testing
-            Debug.Log(taskSystem.RequestNextTask());
-            TaskSystem.Task task = new TaskSystem.Task();
-            taskSystem.AddTask(task);
-            Debug.Log(taskSystem.RequestNextTask());
-            Debug.Log(taskSystem.RequestNextTask());
+
+            //Spawning a worker
+            //Worker worker = Worker.Create(new int(0));
+            //WorkerTaskAI workerTaskAI = worker.gameObject.AddComponet<WorkerTaskAI>();
+            //workerTaskAI.Setup(worker);
+
+
+
         }
 
 

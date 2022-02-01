@@ -12,7 +12,7 @@ namespace TaskSystem
             WaitingForNextTask,
             ExecutingTask,
         }
-        private WorkerTaskAI worker;
+        private IWorker worker;
         private State state;
         private float waitingTimer;
 
