@@ -12,14 +12,10 @@ namespace TaskSystem
             TaskSystem taskSystem = new TaskSystem();
 
             //Spawning a worker
-            //Worker worker = Worker.Create(new int(0));
-            //WorkerTaskAI workerTaskAI = worker.gameObject.AddComponet<WorkerTaskAI>();
-            //workerTaskAI.Setup(worker);
-
-
+            Worker worker = Worker.Create(0);
+            WorkerTaskAI workerTaskAI = worker.gameObject.AddComponent<WorkerTaskAI>();
+            workerTaskAI.Setup(worker);
 
         }
-
-
     }
 }
