@@ -8,7 +8,7 @@ namespace TaskSystem
     {
         void Start()
         {
-            //instiantate the Task System
+            //instantiate the Task System
             TaskSystem taskSystem = new TaskSystem();
 
             //Spawning a worker
