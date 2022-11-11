@@ -17,7 +17,7 @@ namespace TaskSystem
 
         private Worker(int position)
         {
-
+            //test
         }
 
         public void MoveTo(int position, Action onArrivedAtPosition = null)
