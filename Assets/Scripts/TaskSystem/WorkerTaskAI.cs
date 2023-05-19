@@ -12,13 +12,16 @@ namespace TaskSystem
             WaitingForNextTask,
             ExecutingTask,
         }
+
         private IWorker worker;
+        private TaskSystem taskSystem;
         private State state;
         private float waitingTimer;
 
-        public void Setup(IWorker worker)
+        public void Setup(IWorker worker, TaskSystem taskSystem)
         {
             this.worker = worker;
+            this.taskSystem = taskSystem;
             //initial state
             state = State.WaitingForNextTask;
         }
@@ -38,11 +41,33 @@ namespace TaskSystem
                         RequestNextTask();
                     }
                     break;
+
+                case State.ExecutingTask:
+                    break;
             }
         }
+        
         private void RequestNextTask()
         {
             Debug.Log("Request Next Task!!");
+            TaskSystem.Task task = taskSystem.RequestNextTask();
+            if (task == null)
+            {
+                state = State.WaitingForNextTask;
+            }
+            else
+            {
+                state = State.ExecutingTask;
+                ExecuteTask(task);
+            }
+        }
+
+        private void ExecuteTask(TaskSystem.Task task)
+        {
+            Debug.Log("Executing Task!!");
+            worker.MoveTo(task.position, () => {
+                state = State.WaitingForNextTask;
+            }); 
         }
     }
 }

@@ -8,6 +8,7 @@ namespace TaskSystem
     {
         public class Task
         {
+            public int position;
 
         }
 

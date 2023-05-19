@@ -6,15 +6,30 @@ namespace TaskSystem
 {
     public class GameHandler : MonoBehaviour
     {
-        void Start()
+        public GameObject worker;
+
+        private void Start()
         {
             //instantiate the Task System
             TaskSystem taskSystem = new TaskSystem();
 
+            Debug.Log(taskSystem.RequestNextTask());
+            TaskSystem.Task task = new TaskSystem.Task();
+            taskSystem.AddTask(task);
+            Debug.Log(taskSystem.RequestNextTask());
+            Debug.Log(taskSystem.RequestNextTask());
+
             //Spawning a worker
-            Worker worker = Worker.Create(0);
-            WorkerTaskAI workerTaskAI = worker.gameObject.AddComponent<WorkerTaskAI>();
-            workerTaskAI.Setup(worker);
+            //Worker worker = Worker.Create(0);
+
+
+            Instantiate(worker);
+
+            taskSystem.AddTask();
+            //worker.workerTaskAI.Setup(worker, taskSystem);
+
+            //WorkerTaskAI workerTaskAI = worker.AddComponent<WorkerTaskAI>();
+            //workerTaskAI.Setup(worker);
 
         }
     }
