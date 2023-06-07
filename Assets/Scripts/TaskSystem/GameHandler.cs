@@ -25,7 +25,7 @@ namespace TaskSystem
 
             Instantiate(worker);
 
-            taskSystem.AddTask();
+            //taskSystem.AddTask();
             //worker.workerTaskAI.Setup(worker, taskSystem);
 
             //WorkerTaskAI workerTaskAI = worker.AddComponent<WorkerTaskAI>();
